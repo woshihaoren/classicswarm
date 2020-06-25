@@ -61,7 +61,7 @@ func weighNodes(config *cluster.ContainerConfig, nodes []*node.Node, healthiness
 		}
 
 		if cpuScore <= 100 && memoryScore <= 100 {
-			weightedNodes = append(weightedNodes, &weightedNode{Node: node, Weight: cpuScore + memoryScore + healthinessFactor*node.HealthIndicator})
+			weightedNodes = append(weightedNodes, &weightedNode{Node: node, Weight: memoryScore + healthinessFactor*node.HealthIndicator})
 		}
 	}
 
